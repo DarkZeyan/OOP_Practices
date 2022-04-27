@@ -10,36 +10,41 @@ package eva2_16_figuras;
  *
  * @author invitado
  */
-public class Triangulo extends Figura{
-    private double base,altura;
-    
-    public Triangulo(){
+public class EVA2_16_FIGURAS {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
         
+        Circulo circulin = new Circulo(5.0);
+        Rectangulo rectangulin = new Rectangulo(5.0,3.0);
+        Triangulo triangulin = new Triangulo(10.0,2.0);
+        
+        
+        //Para el polimorfismo verificar la relación IS-A
+        imprimirArea(triangulin);
+        imprimirArea(circulin);
+        imprimirArea(rectangulin);
+        
+        claseObject(triangulin);
+ 
     }
     
-    public Triangulo(double base, double altura) {
-        this.base = base;
-        this.altura = altura;
-    }
-    @Override
-    public double calcularArea(){
-        return base*altura/2;
-    }
-    public double getBase() {
-        return base;
-    }
-
-    public void setBase(double base) {
-        this.base = base;
-    }
-
-    public double getAltura() {
-        return altura;
-    }
-
-    public void setAltura(double altura) {
-        this.altura = altura;
+    public static void imprimirArea(Figura f){
+        System.out.println("Area = "+f.calcularArea());
+        //RESTAURAR EL OBJETO: 
+        //Convertir un tipo de dato a otro → Casting
+        
+        if(f instanceof Triangulo){
+            System.out.println(f.getClass());
+         Triangulo trian = (Triangulo)f; //Convertir la figura devuelta a un triangulo
+        }
+         
     }
     
     
+    public static void claseObject(Object o){
+        System.out.println(o.getClass());
+    }
 }
