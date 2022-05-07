@@ -7,7 +7,7 @@ package eva2_15_polimofrismo;
 
 /**
  *
- * @author ruben
+ * @author Jorge
  */
 public class EVA2_15_POLIMORFISMO {
 
@@ -16,7 +16,7 @@ public class EVA2_15_POLIMORFISMO {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Persona persona = new Persona("Juan", 30);
+        Persona persona = new Persona("Jorge", 19);
         Estudiante estudiante = new Estudiante("001122", "Maria", 25);
         Docente docente = new Docente("036","Pedro",50);
         
