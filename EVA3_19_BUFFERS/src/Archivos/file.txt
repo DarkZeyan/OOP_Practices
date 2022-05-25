@@ -1,0 +1,3 @@
+Hola mundo
+archivo de texto 
+usando buffers
