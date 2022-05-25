@@ -27,7 +27,7 @@ public class EVA3_18_ARCHIVOS {
             
             //Ruta:
             //FileInputStream funciona para leer los archivos de texto.
-            FileInputStream file = new FileInputStream("C:/POOFiles/archivo1.txt");
+            FileInputStream file = new FileInputStream("src/eva3_18_archivos/archivo1.txt");
             int caracter = file.read();
             do{
                 
