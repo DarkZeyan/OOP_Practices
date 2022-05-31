@@ -47,6 +47,7 @@ public class EVA3_19_BUFFERS {
                 System.out.println(linea);
                 linea = readText.readLine();
         }
+            readText.close();
         } catch (IOException ex) {
            ex.printStackTrace();
         }
