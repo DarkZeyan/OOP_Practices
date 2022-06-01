@@ -1,5 +1,4 @@
-package eva3_21_serializable;
-
+package eva3_22_serializable_arreglos;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -7,31 +6,30 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
 
 /**
  *
  * @author Jorge Bugarini
  */
-public class EVA3_21_SERIALIZABLE {
+public class EVA3_22_SERIALIZABLE_ARREGLOS {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
-
-        //Especificar que objetos (clases) son serializables.
-        //Debemos hacer que dicha clase implemente la interfaz SERIALIZABLE   
-        Persona persona = new Persona("Jorge", 19);
-        escribirObjetos(persona);
+        
+        ArrayList<Persona> listaPersonas = new ArrayList(); //Colecciones → Tipos de datos genéricos-
+        
+        // Java, listas, arreglos, etc: 0 → n-1
+        listaPersonas.add(new Persona("Jorge",19));
+        listaPersonas.add(new Persona("Yoyi",19));
+        listaPersonas.add(new Persona("Gera",19));
+        listaPersonas.add(new Persona("Leo",19));
+        listaPersonas.add(new Persona("Tony",19));
+        
+        escribirObjetos(listaPersonas);
         leerObjetos();
-
     }
-
-    //escribir objetos
-
+    
+    
     public static void escribirObjetos(Object obj) {
         try {
             FileOutputStream openFile = new FileOutputStream("src/archivos/file1.zeyan");
@@ -45,17 +43,17 @@ public class EVA3_21_SERIALIZABLE {
             ex.printStackTrace();
         }
     }
-
-    //leer objetos
-
-    public static void leerObjetos() {
+    
+      public static void leerObjetos() {
 
         try {
             FileInputStream openFile = new FileInputStream("src/archivos/file1.zeyan");
             ObjectInputStream readObject = new ObjectInputStream(openFile);
             
-            Persona p1 = (Persona)readObject.readObject(); ///Siempre regresa un objeto de la Clase Object
-            System.out.println("Nombre:"+p1.getNombre()+"\nEdad: "+p1.getEdad());
+            ArrayList<Persona> lista = (ArrayList)readObject.readObject(); ///Siempre regresa un objeto de la Clase Object
+            for(int i=0; i<lista.size();i++){
+                System.out.println("Nombre: "+lista.get(i).getNombre()+" | Edad: "+lista.get(i).getEdad());
+            }
             
             
         } catch (FileNotFoundException ex) {
@@ -63,10 +61,11 @@ public class EVA3_21_SERIALIZABLE {
         } catch (IOException ex) {
             ex.printStackTrace();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(EVA3_21_SERIALIZABLE.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
 
+    
 }
 
 class Persona implements Serializable {
